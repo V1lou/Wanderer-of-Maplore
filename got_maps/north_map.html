@@ -15,20 +15,20 @@
 </head>
 <body>
   <div id="map"></div>
-  <script>
-    const map = L.map('map', {
-      minZoom: -2,
-      crs: L.CRS.Simple
-    });
+<script>
+  const map = L.map('map', {
+    minZoom: -2,
+    crs: L.CRS.Simple
+  });
 
-    const w = 1654;
-    const h = 2339;
-    const southWest = map.unproject([0, h], map.getMaxZoom() - 1);
-    const northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
-    const bounds = new L.LatLngBounds(southWest, northEast);
+  const w = 1654;  // ширина картинки
+  const h = 2339;  // высота картинки
+  const southWest = map.unproject([0, h], map.getMaxZoom() - 1);
+  const northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
+  const bounds = new L.LatLngBounds(southWest, northEast);
 
-    L.imageOverlay('north.png', bounds).addTo(map);
-    map.fitBounds(bounds);
-  </script>
+  L.imageOverlay('https://raw.githubusercontent.com/V1lou/Wanderer-of-Maplore/main/got_maps/north.png', bounds).addTo(map);
+  map.fitBounds(bounds);
+</script>
 </body>
 </html>
