@@ -27,7 +27,7 @@
   const northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
   const bounds = new L.LatLngBounds(southWest, northEast);
 
-  L.imageOverlay('https://raw.githubusercontent.com/V1lou/Wanderer-of-Maplore/main/got_maps/north.png', bounds).addTo(map);
+  L.imageOverlay('north.png', bounds).addTo(map);
   map.fitBounds(bounds);
 </script>
 </body>
