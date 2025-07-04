@@ -20,15 +20,16 @@
     minZoom: -2,
     crs: L.CRS.Simple
   });
-
-  const w = 1654;  // ширина картинки
-  const h = 2339;  // высота картинки
+  
+  const w = 1654;
+  const h = 2339;
   const southWest = map.unproject([0, h], map.getMaxZoom() - 1);
   const northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
   const bounds = new L.LatLngBounds(southWest, northEast);
-
+  
   L.imageOverlay('north.png', bounds).addTo(map);
   map.fitBounds(bounds);
+  map.setMaxBounds(bounds);
 </script>
 </body>
 </html>
