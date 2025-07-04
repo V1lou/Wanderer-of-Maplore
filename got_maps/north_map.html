@@ -8,8 +8,6 @@
     html, body, #map {
       height: 100%;
       margin: 0;
-      padding: 0;
-      overflow: hidden; /* убрать скролл у страницы */
     }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -18,21 +16,20 @@
 <body>
   <div id="map"></div>
   <script>
-    const w = 1654;
-    const h = 2339;
-
     const map = L.map('map', {
       minZoom: -2,
-      maxZoom: 2,
-      maxBoundsViscosity: 1.0, // ограничение выхода за границы
-      crs: L.CRS.Simple
+      crs: L.CRS.Simple,
+      maxBoundsViscosity: 1.0  // Это ключевой параметр, блокирует выход за границы
     });
 
+    const w = 1654;
+    const h = 2339;
     const southWest = map.unproject([0, h], map.getMaxZoom() - 1);
     const northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
     const bounds = new L.LatLngBounds(southWest, northEast);
 
     L.imageOverlay('north.png', bounds).addTo(map);
+
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
   </script>
